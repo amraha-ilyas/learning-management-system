@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="dashboard-layout">
+
+    <aside class="sidebar">
+
+        <h2>LMS</h2>
+
+        <ul>
+            <li>Dashboard</li>
+            <li>Assignments</li>
+            <li>Quizzes</li>
+            <li>Schedule</li>
+            <li>Profile</li>
+        </ul>
+
+    </aside>
+
+    <main class="main-content">
+
+        <h1>
+           Welcome Back, {{ session['fullname'] }}
+        </h1>
+
+        <p>
+           Manage assignments, quizzes and your academic schedule.
+        </p>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>Total Assignments</h3>
+                <p>{{ total }}</p>
+            </div>
+
+            <div class="card">
+                <h3>Pending</h3>
+                <p>{{ pending }}</p>
+            </div>
+
+            <div class="card">
+                <h3>Completed</h3>
+                <p>{{ completed }}</p>
+            </div>
+
+            <div class="card">
+                <h3>Quizzes Taken</h3>
+                <p>{{ quizzes_taken }}</p>
+            </div>
+
+            <div class="card">
+                <h3>Average Score</h3>
+                <p>{{ avg_score }}%</p>
+            </div>
+
+        </div>
+
+        <div class="schedule-box">
+
+            <h2>Today's Schedule</h2>
+
+            <table>
+
+                <tr>
+                    <th>Subject</th>
+                    <th>Time</th>
+                </tr>
+
+                <tr>
+                    <td>Object Oriented Programming</td>
+                    <td>09:00 AM</td>
+                </tr>
+
+                <tr>
+                    <td>Database Systems</td>
+                    <td>11:00 AM</td>
+                </tr>
+
+                <tr>
+                    <td>Calculus</td>
+                    <td>01:00 PM</td>
+                </tr>
+
+            </table>
+
+        </div>
+
+    </main>
+
+</div>
+
+{% endblock %}

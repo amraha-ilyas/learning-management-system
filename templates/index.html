@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="hero">
+
+    <h1>Learning Management System</h1>
+
+    <p>
+        Manage assignments, quizzes, schedules and academic progress from one place.
+    </p>
+
+    <a href="{{ url_for('register') }}" class="btn">
+    Get Started
+    </a>
+
+</section>
+
+<section class="features">
+
+    <div class="feature-card">
+        <h2>Assignment Tracker</h2>
+        <p>Track deadlines and submissions.</p>
+    </div>
+
+    <div class="feature-card">
+        <h2>Quiz System</h2>
+        <p>Take quizzes and view scores.</p>
+    </div>
+
+    <div class="feature-card">
+        <h2>Class Schedule</h2>
+        <p>Stay updated with your timetable.</p>
+    </div>
+
+</section>
+
+{% endblock %}

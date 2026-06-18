@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Quiz Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="auth-container">
+
+```
+<h1>Quiz Completed</h1>
+
+<h2>{{ score }}/{{ total }}</h2>
+
+<h3>{{ percentage }}%</h3>
+
+{% if percentage >= 80 %}
+    <p>Excellent Work!</p>
+{% elif percentage >= 60 %}
+    <p>Good Job!</p>
+{% else %}
+    <p>Keep Practicing!</p>
+{% endif %}
+
+<a href="{{ url_for('dashboard') }}" class="btn">
+    Back to Dashboard
+</a>
+```
+
+</div>
+
+</body>
+</html>

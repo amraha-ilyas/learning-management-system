@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Quiz Management</h2>
+
+<form method="POST">
+
+    <input
+        type="text"
+        name="title"
+        placeholder="Quiz Title"
+        required
+    >
+
+    <button type="submit">
+        Add Quiz
+    </button>
+
+</form>
+
+<hr>
+
+<table>
+
+    <tr>
+        <th>ID</th>
+        <th>Quiz Title</th>
+        <th>Questions</th>
+    </tr>
+
+    {% for quiz in quizzes %}
+
+    <tr>
+
+        <td>{{ quiz[0] }}</td>
+
+        <td>{{ quiz[1] }}</td>
+
+        <td>
+
+            <a class="quiz-btn"
+            href="{{ url_for('add_question', quiz_id=quiz[0]) }}">
+            Add Questions
+            </a>
+
+            <a class="complete-btn"
+            href="{{ url_for('take_quiz', quiz_id=quiz[0]) }}">
+            Take Quiz
+            </a>
+
+        </td>
+
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+{% endblock %}

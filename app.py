@@ -332,7 +332,7 @@ def add_question(quiz_id):
 @app.route('/take_quiz/<int:quiz_id>', methods=['GET', 'POST'])
 def take_quiz(quiz_id):
 
-    conn = sqlite3.connect('database.db')
+    conn = sqlite3.connect('database.db', timeout=30)
     conn.row_factory = sqlite3.Row
     cursor = conn.cursor()
 
@@ -357,7 +357,9 @@ def take_quiz(quiz_id):
                 score += 1
 
         total = len(questions)
+        percentage = round((score / total) * 100, 2)
 
+        # SAVE RESULT TO DATABASE
         cursor.execute(
             """
             INSERT INTO quiz_results
@@ -376,10 +378,11 @@ def take_quiz(quiz_id):
         conn.close()
 
         return render_template(
-            'quiz_result.html',
-            score=score,
-            total=total
-        )
+        'quiz_result.html',
+        score=score,
+        total=total,
+        percentage=percentage
+    )
 
     conn.close()
 

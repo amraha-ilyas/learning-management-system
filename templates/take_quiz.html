@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Take Quiz</h2>
+
+<form method="POST">
+
+    {% for q in questions %}
+
+        <div class="quiz-question">
+
+            <h3>
+                {{ loop.index }}.
+                {{ q['question'] }}
+            </h3>
+
+            <label>
+                <input
+                    type="radio"
+                    name="question_{{ q['id'] }}"
+                    value="{{ q['option1'] }}"
+                    required
+                >
+                {{ q['option1'] }}
+            </label>
+
+            <br><br>
+
+            <label>
+                <input
+                    type="radio"
+                    name="question_{{ q['id'] }}"
+                    value="{{ q['option2'] }}"
+                >
+                {{ q['option2'] }}
+            </label>
+
+            <br><br>
+
+            <label>
+                <input
+                    type="radio"
+                    name="question_{{ q['id'] }}"
+                    value="{{ q['option3'] }}"
+                >
+                {{ q['option3'] }}
+            </label>
+
+            <br><br>
+
+            <label>
+                <input
+                    type="radio"
+                    name="question_{{ q['id'] }}"
+                    value="{{ q['option4'] }}"
+                >
+                {{ q['option4'] }}
+            </label>
+
+        </div>
+
+        <hr>
+
+    {% endfor %}
+
+    <button type="submit">
+        Submit Quiz
+    </button>
+
+</form>
+
+{% endblock %}
